@@ -1,6 +1,5 @@
 (import 
  [hy.models.list [HyList]]
- [hy.models.symbol [HySymbol]]
  )
 
 (defun maptests [tests]
@@ -95,9 +94,10 @@
 
        [--getattr--
 	(fn [self attr]
-	  (.get (getattr self "_locals") attr 
-		(.get (getattr self "_globals") attr None)
-		)
+	  (or
+	   (.get (getattr self "_locals") attr)
+	   (.get (getattr self "_globals") attr)
+	   )
 	  )]
        ])
     (unittest.main (LocalModule (dir) (locals) (globals)))
