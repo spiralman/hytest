@@ -67,7 +67,7 @@ when testing side-effect free code. A better pattern might be a way to
 define input data passed to all the test functions, but I haven't
 quite figured out exactly how I'd want to do that.
 
-## Main function ##  
+## Main Function ##
 
 As you can see in the original example, there is a macro named
 `hytest-main` which you can use to invoke `unittest.main` on the
